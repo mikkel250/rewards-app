@@ -1,3 +1,4 @@
+// Rewards.jsx
 import React, { useEffect, useState } from "react";
 
 function Rewards() {
@@ -73,23 +74,25 @@ function Rewards() {
       <h2>Rewards Points</h2>
       <ul>
         {Object.entries(rewardsData).map(([month, rewards]) => {
-          <li key={month}>
-            <strong>Month: {month}</strong>
-            <div>Total Points: {rewards.totalPoints}</div>
-            <ul>
-              {Object.entries(rewards.monthlyPoints).map(
-                ([transactionId, points]) => (
-                  <li key={transactionId}>
-                    Transaction {transactionId}: {points} points
-                  </li>
-                )
-              )}
-            </ul>
-          </li>;
+          return (
+            <li key={month}>
+              <strong>Month: {month}</strong>
+              <div>Total Points: {rewards.totalPoints}</div>
+              <ul>
+                {Object.entries(rewards.monthlyPoints).map(([transactionId, points]) => {
+                  return (
+                    <li key={transactionId}>
+                      Transaction {transactionId}: {points} points
+                    </li>
+                  );
+                })}
+              </ul>
+            </li>
+          );
         })}
       </ul>
     </div>
-  );
+  );  
 }
 
 export default Rewards;
