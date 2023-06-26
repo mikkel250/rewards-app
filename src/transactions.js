@@ -1,4 +1,3 @@
-// transactions.js
 [
   {"id": 1, "amount": 120 },
   {"id": 2, "amount": 80 },
